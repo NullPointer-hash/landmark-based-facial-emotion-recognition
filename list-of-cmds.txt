@@ -1,0 +1,7 @@
+python gather-data.py --iterations 600 --emotion Angry
+python gather-data.py --iterations 600 --emotion Disgust
+python gather-data.py --iterations 600 --emotion Fear
+python gather-data.py --iterations 600 --emotion Happy
+python gather-data.py --iterations 600 --emotion Neutral
+python gather-data.py --iterations 600 --emotion Sad
+python gather-data.py --iterations 600 --emotion Surprise
