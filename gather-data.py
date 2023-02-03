@@ -7,25 +7,12 @@ import os
 import time
 
 import utils
+import constants
 
 # https://raw.githubusercontent.com/rcsmit/python_scripts_rcsmit/master/extras/Gal_Gadot_by_Gage_Skidmore_4_5000x5921_annotated_black_letters.jpg
 
-emotions = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"]
-
-indecies = np.array([
-  362, 384, 386, 388, 363, 390, 374, 381,\
-  464, 441, 443, 445, 446, 448, 450, 452,\
-  33, 161, 159, 157, 133, 154, 145, 163,\
-  226, 225, 223, 221, 244, 232, 230, 228,\
-  336, 296, 334, 293, 300, 295, 285,\
-  70, 63, 105, 66, 107, 55, 65,\
-  129, 206, 212, 202, 194, 200, 418, 422, 432, 426, 358,\
-  167, 92, 57, 106, 83, 313, 335, 287, 322, 393,\
-  0, 37, 40, 61, 91, 84, 314, 321, 291, 270, 267,\
-  13, 82, 80, 78, 88, 87, 317, 318, 308, 310, 312,\
-  174, 134, 48, 240, 2, 460, 278, 420, 399,\
-  132, 58, 136, 149, 148, 377, 378, 365, 288, 361
-])
+emotions = constants.EMOTIONS
+indecies = constants.INDECIES
 
 print(len(indecies))
 cartesian_pairs = utils.cartesian_product(indecies, indecies)
@@ -55,13 +42,15 @@ def run(
   # For webcam input:
   # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1) # Drawing the face mesh annotations on the image --------------------------
   cap = cv2.VideoCapture(0) # opencv function to get frames from web cam --------------------------
+  width = int(cap.get(3))
+  height = int(cap.get(4))
+  # writer = cv2.VideoWriter("./tmp/gather-data.mp4",cv2.VideoWriter_fourcc('M','J','P','G'), 10, (width, height))
   with mp_face_mesh.FaceMesh(
       max_num_faces=1,
       refine_landmarks=True,
       min_detection_confidence=0.5,
       min_tracking_confidence=0.5) as face_mesh: # initialize the landmark detection model --------------------------
-    width = int(cap.get(3))
-    height = int(cap.get(4))
+    
     while cap.isOpened(): # loop through frames of the webcam --------------------------
       success, image = cap.read() # get frame  --------------------------
       if not success:
@@ -103,11 +92,15 @@ def run(
 
       # Flip the image horizontally for a selfie-view display.
       # image = cv2.flip(image, 1)
-
       cv2.imshow('MediaPipe Face Mesh', image)
       
       if cv2.waitKey(5) & 0xFF == 27: # if ESC is pressed then the window is closed --------------------------
         break
+  
+  cap.release()
+  # writer.release()
+
+  cv2.destroyAllWindows()
 
   print(len(p_df))
   print("saving distances ...")
@@ -122,13 +115,13 @@ def run(
   print("Successfully saved.")
   df.to_csv(output_data_path, mode='a', header=False)
 
-  cap.release()
+  
 
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--emotion', type=str, default="Happy", help='emotion label')
-    parser.add_argument('--iterations', type=int, default=200, help='number of samples gathered for one emotion')
+    parser.add_argument('-e', '--emotion', type=str, default="Happy", help='emotion label')
+    parser.add_argument('-i', '--iterations', type=int, default=200, help='number of samples gathered for one emotion')
 
     opt = parser.parse_args()
     return opt

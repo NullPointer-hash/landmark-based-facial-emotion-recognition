@@ -1,22 +1,6 @@
 import numpy as np
 import math
 
-# arr = np.array([{"x":1,"y":2,"z":3},{"x":4,"y":5,"z":6},{"x":7,"y":8,"z":9},{"x":3,"y":2,"z":1}])
-# id = np.array([0,1,3])
-# indicies = np.array([
-#   362, 384, 386, 388, 363, 390, 374, 381,\
-#   464, 441, 443,  445, 446, 448, 450, 452,\
-#   33, 161, 159, 157, 133, 154, 145, 163,\
-#   226, 225, 223, 221, 244, 232, 230, 228,\
-#   336, 296, 334, 293, 300, 295, 285,\
-#   70, 63, 105, 66, 107, 55, 65,\
-#   129, 206, 212, 202, 194, 200, 418, 422, 432, 426, 358,\
-#   167, 92, 57, 106, 83, 313, 335, 287, 322, 393,\
-#   0, 37, 40, 61, 91, 84, 314, 321, 291, 270, 267,\
-#   13, 82, 80, 78, 88, 87, 317, 318, 308, 310, 312,\
-#   174, 134, 48, 240, 2, 460, 278, 420, 399,\
-#   132, 58, 136, 149, 148, 377, 378, 365, 288, 361
-# ])
 
 def getX(point):
     return point.x
@@ -84,12 +68,6 @@ def calculate_all_distances(landmark_list, width, height, face_width_squared, fa
     return distances
 
 
-# m = np.array([[1,2],[8,2]])
-# print(m.dot(np.array([[1],[-1]])))
-# print(cartesian_product(arr,arr))
-# print(calculate_all_distances(arr))
-# print(arr[id])
-
 def draw_styled_landmarks(image, mp_drawing, multi_face_landmarks, mp_face_mesh, mp_drawing_styles):
     for face_landmarks in multi_face_landmarks: # loop through all facial landmarks --------------------------
       mp_drawing.draw_landmarks( # drawing lines between points of the landmarks --------------------------
@@ -115,3 +93,4 @@ def draw_styled_landmarks(image, mp_drawing, multi_face_landmarks, mp_face_mesh,
           landmark_drawing_spec=None,
           connection_drawing_spec=mp_drawing_styles
           .get_default_face_mesh_iris_connections_style())
+
