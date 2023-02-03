@@ -38,21 +38,21 @@ specify the number of iterations for each cmd
 you can train your own model using this command
 it is advice to use more than 6000 rows in the dataset to have good results
 
-    python train.py -e NUMBER_EPOCHS
+    python train.py -e NUMBER_OF_EPOCHS
                     -bs BATCH_SIZE 
                     -lr LEARNING_RATE 
                     -ts TEST_SIZE
-                    -dp DATA_SET_PATH
+                    -dp DATASET_PATH
                     -mp OUTPUT_MODEL_PATH
                     -hd TRAINING_HISTORY_PATH
 
 == OR ==
 
-    python train.py --epochs NUMBER_EPOCHS
+    python train.py --epochs NUMBER_OF_EPOCHS
                     --batch-size BATCH_SIZE 
                     --learning-rate LEARNING_RATE 
                     --test-split TEST_SIZE
-                    --data-path DATA_SET_PATH
+                    --data-path DATASET_PATH
                     --model-path OUTPUT_MODEL_PATH
                     --history-dir TRAINING_HISTORY_PATH
 
