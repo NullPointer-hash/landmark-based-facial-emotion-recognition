@@ -29,7 +29,7 @@ run this command to install all the required packages:
 pip install -r requirements.txt
 ```
 ## Gathering data for each emotion
-(python gather-data.py --help) to show description of the parameters
+```python gather-data.py --help``` to show description of the parameters
 
 use these 7 commands to gather data for each of the 7 emotions
 specify the number of iterations for each cmd
@@ -48,7 +48,7 @@ python gather-data.py --iterations 100 --emotion Surprise
 
 ## Training your own model
 
-(python train.py --help) to show description of the parameters
+```python train.py --help``` to show description of the parameters
 
 you can train your own model using this command
 it is advice to use more than 6000 rows in the dataset to have good results
@@ -81,7 +81,7 @@ python train.py
 
 ## Test model
 
-(python test-model.py --help) to show description of the parameters
+```python test-model.py --help``` to show description of the parameters
 
 test your model using the command below
 since the data gathering process takes alot of time, you can test our model thats in ./model
