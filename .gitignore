@@ -11,7 +11,7 @@ models/*
 !models/.gitkeep 
 
 # exception to the rule
-!models/ANN2.h5
+# !models/ANN2.h5
 
 # exclude everything
 tmp/*
