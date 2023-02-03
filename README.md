@@ -33,8 +33,7 @@ pip install -r requirements.txt
 
 use these 7 commands to gather data for each of the 7 emotions
 specify the number of iterations for each cmd
-> **! it is a slow process if iterations are high !**
-<br />
+> **! it is a slow process if iterations are high !** <br />
 > **!! emotion labels are case sensitive !!**
 
 ```
