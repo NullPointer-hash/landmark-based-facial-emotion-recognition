@@ -34,7 +34,7 @@ pip install -r requirements.txt
 use these 7 commands to gather data for each of the 7 emotions
 specify the number of iterations for each cmd
 > **! it is a slow process if iterations are high !**
-\n
+<br />
 > **!! emotion labels are case sensitive !!**
 
 ```
@@ -74,8 +74,9 @@ python train.py --epochs NUMBER_OF_EPOCHS
                 --model-path OUTPUT_MODEL_PATH
                 --history-dir TRAINING_HISTORY_PATH
 ```
+<br />
 
-> recommended: USE THE DEFAULT TRAINING PARAMETERS USING:
+> **recommended:** USE THE DEFAULT TRAINING PARAMETERS USING:
 ```
 python train.py
 ```
@@ -96,9 +97,9 @@ OR
 ```
 python test-model.py --model-path MODEL_PATH
 ```
+<br />
 
-
-> recommended: USE THE DEFAULT MODEL USING:
+> **recommended:** USE THE DEFAULT MODEL USING:
 ```
 python test-model.py
 ```
