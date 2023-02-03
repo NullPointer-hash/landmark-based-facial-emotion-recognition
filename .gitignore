@@ -1,0 +1,20 @@
+# exclude everything
+data/*
+
+# exception to the rule
+!data/.gitkeep 
+
+# exclude everything
+models/*
+
+# exception to the rule
+!models/.gitkeep 
+
+# exception to the rule
+!models/ANN2.h5
+
+# exclude everything
+tmp/*
+
+# exception to the rule
+!tmp/.gitkeep 
