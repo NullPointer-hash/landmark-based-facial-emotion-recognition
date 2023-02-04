@@ -1,10 +1,10 @@
 # Landmark based facial emotion recognition 
-### Made by Wahbi Oussma 😤 and Oumaym 🙃
+### Made by Wahbi Oussama 😤 and Oumayma 🙃
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-This project is an attempt at training a fully connected NN to predict emotions using facial landmarks only.
-There 7 emotions to predict
+This project is an attempt at training a fully connected Neural Network to predict emotions using facial landmarks only.
+There are 7 emotions to predict
 
 - Angry 😠
 - Disgust 🤢
